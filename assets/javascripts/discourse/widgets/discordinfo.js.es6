@@ -131,12 +131,9 @@ export default createWidget('discordinfo', {
           });
         }
 
-        init();
-
         $(document).ready(function(){
-
+          init();
           
-          C// Create eventlisteners for click on tabs
           $('#_show_discordChannels').on('click', function(e){
             $('#discordChannels').slideToggle('fast');
           });

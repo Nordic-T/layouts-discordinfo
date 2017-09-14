@@ -82,7 +82,7 @@ export default createWidget('discordinfo', {
         )
 
         // Global settings
-        const { settings } = {};
+        var settings = {};
         settings.serverIdentifier = identifier;
         settings.startChannelsCollapsed = startChannelsCollapsed;
         settings.startMembersCollapsed = startMembersCollapsed;
@@ -136,10 +136,11 @@ export default createWidget('discordinfo', {
             $('#_count_discordMembers').text(data.members.length);
           });
         }
+
         $(document).ready(function(){
           init();
-
-          // Create eventlisteners for click on tabs
+          
+          C// Create eventlisteners for click on tabs
           $('#_show_discordChannels').on('click', function(e){
             $('#discordChannels').slideToggle('fast');
           });

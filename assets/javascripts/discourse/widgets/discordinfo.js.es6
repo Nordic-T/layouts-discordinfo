@@ -133,12 +133,14 @@ export default createWidget('discordinfo', {
 
         init();
         
-        // Create eventlisteners for click on tabs
-        $('#_show_discordChannels').on('click', function(e){
-          $('#discordChannels').slideToggle('fast');
-        });
-        $('#_show_discordMembers').on('click', function(e){
-          $('#discordMembers').slideToggle('fast');
+        $(document).ready(function(){
+          // Create eventlisteners for click on tabs
+          $('#_show_discordChannels').on('click', function(e){
+            $('#discordChannels').slideToggle('fast');
+          });
+          $('#_show_discordMembers').on('click', function(e){
+            $('#discordMembers').slideToggle('fast');
+          });
         });
 
       }

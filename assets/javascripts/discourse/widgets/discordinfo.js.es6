@@ -136,10 +136,9 @@ export default createWidget('discordinfo', {
             $('#_count_discordMembers').text(data.members.length);
           });
         }
-
-        init();
-        
         $(document).ready(function(){
+          init();
+
           // Create eventlisteners for click on tabs
           $('#_show_discordChannels').on('click', function(e){
             $('#discordChannels').slideToggle('fast');

@@ -1,8 +1,8 @@
 en:
   site_settings:
     layouts_discordinfo_identifier: "Discourse Identifier key - looks something like 90008000710008880 (17 digits)"
-    layouts_discordinfo_startChannelsCollapsed: "Show Channels Collapsed as default"
-    layouts_discordinfo_startMembersCollapsed: "Show Members Collapsed as default"
+    layouts_discordinfo_startChannelsCollapsed: "Collaps Channels-list as default"
+    layouts_discordinfo_startMembersCollapsed: "Collaps Members-list as default"
     layouts_discordinfo_a_text: "Text for the Join-button. Optinal: \"@username\" will be replaced by the current users."
     layouts_discordinfo_a_href: "Discord Invite link"
     layouts_discordinfo_opt_a_faicon: "Enable FontAwesome icon (before text)"

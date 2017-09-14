@@ -1,7 +1,8 @@
 # name: layouts-discordinfo
-# about: A custom html widget for use with Discourse Layouts
+# about: Layout with informations from Discord
 # version: 0.1
-# authors: Angus McLeod
+# authors: Tobias / exetico
+# url: https://github.com/Nordic-T/layouts-discordinfo/
 
 enabled_site_setting :layouts_discordinfo_a_text
 

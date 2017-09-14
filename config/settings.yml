@@ -1,6 +1,6 @@
 plugins:
   layouts_discordinfo_a_text:
-    default: ''
+    default: 'Join the chat @username!'
     client: true
   layouts_discordinfo_a_href:
     client: true

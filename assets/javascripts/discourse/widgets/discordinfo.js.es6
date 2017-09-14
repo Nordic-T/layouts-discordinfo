@@ -24,17 +24,17 @@ export default createWidget('discordinfo', {
     const topic = state.topic;
     const username = currentUser.get('username');
 
-    const a_hover = Discourse.SiteSettings.widget_discordinfo_a_hover;
-    let a_text = Discourse.SiteSettings.widget_discordinfo_a_text;
+    let a_text = Discourse.SiteSettings.layouts_discordinfo_a_text;
     ((a_text.indexOf('@username') >= 0) ? a_text = a_text.replace("@username", username) : a_text);
 
-    const a_href = Discourse.SiteSettings.widget_discordinfo_a_href;
-    const a_faicon = Discourse.SiteSettings.widget_discordinfo_a_faicon;
-    const a_selectors = Discourse.SiteSettings.widget_discordinfo_a_selectors;
-    const a_customstyle = Discourse.SiteSettings.widget_discordinfo_a_customstyle;
+    const a_href = Discourse.SiteSettings.layouts_discordinfo_a_href;
+    const a_hover = Discourse.SiteSettings.layouts_discordinfo_a_hover;
+    const a_faicon = Discourse.SiteSettings.layouts_discordinfo_a_faicon;
+    const a_selectors = Discourse.SiteSettings.layouts_discordinfo_a_selectors;
+    const a_customstyle = Discourse.SiteSettings.layouts_discordinfo_a_customstyle;
 
-    const a_opt_newwindow = Discourse.SiteSettings.widget_discordinfo_opt_a_newwindow;
-    const a_opt_faicon = Discourse.SiteSettings.widget_discordinfo_opt_a_faicon;
+    const a_opt_newwindow = Discourse.SiteSettings.layouts_discordinfo_opt_a_newwindow;
+    const a_opt_faicon = Discourse.SiteSettings.layouts_discordinfo_opt_a_faicon;
     
     let contents = []
 

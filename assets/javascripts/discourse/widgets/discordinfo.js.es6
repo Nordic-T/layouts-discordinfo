@@ -54,15 +54,17 @@ export default createWidget('discordinfo', {
       else{
         // Frontpage content goes here.
         contents.push(
-            h('div#discordInfo',''),
-            h(`a ${a_selectors}`, {
-              href: a_href,
-              title: a_hover,
-              style: a_customstyle,
-              attributes: {
-                'aria-label': a_hover,
-                'target': ((a_opt_newwindow) ? "_blank" : "_self")
-              }
+          h('div#discordInfo',[
+            h('div#_show_discordChannels')
+          ]),
+          h(`a ${a_selectors}`, {
+            href: a_href,
+            title: a_hover,
+            style: a_customstyle,
+            attributes: {
+              'aria-label': a_hover,
+              'target': ((a_opt_newwindow) ? "_blank" : "_self")
+            }
           }, [((a_opt_faicon) ? h(`i.fa.${a_faicon}`): ""), a_text]), // Need to mix const's and text? Use something like `Here is my ${a_text} with a ${username}!`
         )
 

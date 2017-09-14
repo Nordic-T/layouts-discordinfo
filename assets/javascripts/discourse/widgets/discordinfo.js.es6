@@ -25,7 +25,6 @@ export default createWidget('discordinfo', {
     const username = currentUser.get('username');
 
     let a_text = Discourse.SiteSettings.layouts_discordinfo_a_text;
-    //((a_text.indexOf('@username') >= 0) ? a_text = a_text.replace("@username", username) : a_text);
 
     const a_href = Discourse.SiteSettings.layouts_discordinfo_a_href;
     const a_hover = Discourse.SiteSettings.layouts_discordinfo_a_hover;
@@ -35,6 +34,8 @@ export default createWidget('discordinfo', {
 
     const a_opt_newwindow = Discourse.SiteSettings.layouts_discordinfo_opt_a_newwindow;
     const a_opt_faicon = Discourse.SiteSettings.layouts_discordinfo_opt_a_faicon;
+
+    ((a_text.indexOf('@username') >= 0) ? a_text = a_text.replace("@username", username) : a_text);
     
     let contents = []
 

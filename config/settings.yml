@@ -1,13 +1,19 @@
 plugins:
+  layouts_discordinfo_identifier:
+      client: true
+      default: ""
+  layouts_discordinfo_startChannelsCollapsed:
+      client: true
+      default: true
+  layouts_discordinfo_startMembersCollapsed:
+      client: true
+      default: true
   layouts_discordinfo_a_text:
     default: 'Join the chat @username!'
     client: true
   layouts_discordinfo_a_href:
     client: true
     default: "https://google.dk"
-  layouts_discordinfo_opt_a_faicon:
-      client: true
-      default: true
   layouts_discordinfo_a_hover:
       client: true
       default: "..join us today!"
@@ -17,9 +23,12 @@ plugins:
   layouts_discordinfo_a_selectors:
       client: true
       default: "#home-button.icon.btn-primary.btn"
-  layouts_discordinfo_opt_a_newwindow:
-      client: true
-      default: true
   layouts_discordinfo_a_customstyle:
       client: true
       default: ""
+  layouts_discordinfo_opt_a_newwindow:
+      client: true
+      default: true
+  layouts_discordinfo_opt_a_faicon:
+      client: true
+      default: true

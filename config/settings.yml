@@ -1,4 +1,4 @@
 plugins:
-  layouts_custom_html:
+  layouts_discordinfo_a_text:
     default: ''
     client: true

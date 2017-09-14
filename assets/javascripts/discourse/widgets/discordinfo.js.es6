@@ -89,6 +89,10 @@ export default createWidget('discordinfo', {
         console.log(startChannelsCollapsed);
         console.log(Discourse.SiteSettings.layouts_discordinfo_startChannelsCollapsed);
 
+        contents.push(
+          h('div#discordInfo',startChannelsCollapsed & " ... " & Discourse.SiteSettings.layouts_discordinfo_startChannelsCollapsed)
+        )
+
         function init(){
           // Check settings for collapse
           if (settings.startChannelsCollapsed)

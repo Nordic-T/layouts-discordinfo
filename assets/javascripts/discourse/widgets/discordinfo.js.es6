@@ -35,6 +35,10 @@ export default createWidget('discordinfo', {
     const a_opt_newwindow = Discourse.SiteSettings.layouts_discordinfo_opt_a_newwindow;
     const a_opt_faicon = Discourse.SiteSettings.layouts_discordinfo_opt_a_faicon;
 
+    const identifier = Discourse.SiteSettings.layouts_discordinfo_identifier;
+    const startChannelsCollapsed = Discourse.SiteSettings.layouts_discordinfo_startChannelsCollapsed;
+    const startMembersCollapsed = Discourse.SiteSettings.layouts_discordinfo_startMembersCollapsed;
+
     ((a_text.indexOf('@username') >= 0) ? a_text = a_text.replace("@username", username) : a_text);
     
     let contents = []
@@ -79,9 +83,9 @@ export default createWidget('discordinfo', {
 
         // Global settings
         var settings = {};
-        settings.serverIdentifier = "99898616713338880";
-        settings.startChannelsCollapsed = false;
-        settings.startMembersCollapsed = false;
+        settings.serverIdentifier = identifier;
+        settings.startChannelsCollapsed = startChannelsCollapsed;
+        settings.startMembersCollapsed = startMembersCollapsed;
 
         function init(){
           // Check settings for collapse

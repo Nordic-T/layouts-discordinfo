@@ -6,6 +6,8 @@
 
 enabled_site_setting :layouts_discordinfo_a_text
 
+register_asset 'stylesheets/discordinfo-layout.scss'
+
 after_initialize do
   DiscourseLayouts::WidgetHelper.add_widget('discordinfo')
 end

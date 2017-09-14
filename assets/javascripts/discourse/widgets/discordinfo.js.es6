@@ -5,7 +5,7 @@ import RawHtml from 'discourse/widgets/raw-html';
 import showModal from 'discourse/lib/show-modal';
 
 export default createWidget('discordinfo', {
-  tagName: 'div.discordinfo',
+  tagName: 'div.layout.layout-discordinfo',
   buildKey: (attrs) => 'discordinfo',
 
   defaultState(attrs) {
@@ -55,7 +55,16 @@ export default createWidget('discordinfo', {
         // Frontpage content goes here.
         contents.push(
           h('div#discordInfo',[
-            h('div#_show_discordChannels')
+            h('div#_show_discordChannels',[
+              h('span','Channel count: '),
+              h('span#_count_discordChannels','0')
+            ]),
+            h('div#discordChannels'),
+            h('div#_show_discordMembers',[
+              h('span','Users online: '),
+              h('span#_count_discordMembers','0')
+            ]),
+            h('div#discordMembers')
           ]),
           h(`a ${a_selectors}`, {
             href: a_href,

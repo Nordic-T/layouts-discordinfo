@@ -5,6 +5,6 @@ export default createWidget('discordinfo', {
   tagName: 'div.discordinfo',
 
   html() {
-    return new RawHtml({ html: this.siteSettings.widget_discordinfo_a_text })
+    return new RawHtml({ html: this.siteSettings.layouts_discordinfo_a_text })
   }
 })

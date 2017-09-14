@@ -86,7 +86,8 @@ export default createWidget('discordinfo', {
         settings.serverIdentifier = identifier;
         settings.startChannelsCollapsed = startChannelsCollapsed;
         settings.startMembersCollapsed = startMembersCollapsed;
-        console.log(startChannelsCollapsed)
+        console.log(startChannelsCollapsed);
+        console.log(Discourse.SiteSettings.layouts_discordinfo_startChannelsCollapsed);
 
         function init(){
           // Check settings for collapse

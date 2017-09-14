@@ -82,7 +82,7 @@ export default createWidget('discordinfo', {
         )
 
         // Global settings
-        var settings = {};
+        const { settings } = {};
         settings.serverIdentifier = identifier;
         settings.startChannelsCollapsed = startChannelsCollapsed;
         settings.startMembersCollapsed = startMembersCollapsed;

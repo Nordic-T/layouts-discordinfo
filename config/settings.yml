@@ -1,13 +1,13 @@
 plugins:
   layouts_discordinfo_identifier:
-      client: true
-      default: ""
+    client: true
+    default: ""
   layouts_discordinfo_startChannelsCollapsed:
-      client: true
-      default: true
+    client: true
+    default: true
   layouts_discordinfo_startMembersCollapsed:
-      client: true
-      default: true
+    client: true
+    default: true
   layouts_discordinfo_a_text:
     default: 'Join the chat @username!'
     client: true

@@ -48,7 +48,8 @@ $infoCircle-size: 35px;
         cursor: pointer;
 
         :hover{
-          background:$header_background;
+          transition: color 0.5s ease;
+          color: $header_background;;
         }
         
         span{

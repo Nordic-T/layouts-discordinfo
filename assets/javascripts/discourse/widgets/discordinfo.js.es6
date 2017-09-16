@@ -117,7 +117,7 @@ export default createWidget('discordinfo', {
             for (var i=0;i<data.members.length;i++)
             {
               var elem = data.members[i];
-              members += "<div><img src="+elem.avatar_url+"/>"+elem.username+"</div>";
+              members += "<div><img src="+elem.avatar_url+" />"+elem.username+"</div>";
             }
             // Populate channels
             $('#discordChannels').html(channels); 

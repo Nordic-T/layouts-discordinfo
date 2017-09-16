@@ -18,11 +18,29 @@ $avatar-size: 25px;
 
   #discordInfo{
     width:100%;
+    padding-top:37px;
 
-    #_show_discordChannels, #_show_discordMembers{
+    #_show_discordPrimaryStyle{
       background: $secondary;
-      padding: 10px 7px;
+      padding: 7px 7px;
+      position:absolute;    
+      top:0;  
+
+      span{background-color:$tertiary;}
     }
+
+    #_show_discordChannels{
+      @extend #_show_discordPrimaryStyle;
+      right:0;
+    }
+
+    #_show_discordMembers{
+      @extend #_show_discordPrimaryStyle;
+      left:0;
+    }
+
+
+
   }
 
   #discordChannels, #discordMembers{

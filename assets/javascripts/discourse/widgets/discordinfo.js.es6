@@ -62,7 +62,7 @@ export default createWidget('discordinfo', {
             h('div#_show_discordChannels',[
               h('span.wrapper',[
                 h(`i.fa.fa-commenting`),
-                h('span#_count_discordChannels','0')
+                h('span#_count_discordChannels','')
                 //h('span#type','Channels')
               ])
             ]),
@@ -70,7 +70,7 @@ export default createWidget('discordinfo', {
             h('div#_show_discordMembers',[
               h('span.wrapper',[
                 h(`i.fa.fa-users`),
-                h('span#_count_discordMembers','0')
+                h('span#_count_discordMembers','')
                 //h('span#type','Users')
               ])
             ]),

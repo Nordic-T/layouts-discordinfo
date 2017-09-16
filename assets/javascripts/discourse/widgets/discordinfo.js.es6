@@ -61,15 +61,17 @@ export default createWidget('discordinfo', {
           h('div#discordInfo',[
             h('div#_show_discordChannels',[
               h('span.wrapper',[
-                h('span#_count_discordChannels','0'),
-                h('span#type','Channels')
+                h(`i.fa.fa-commenting`),
+                h('span#_count_discordChannels','0')
+                //h('span#type','Channels')
               ])
             ]),
             h('div#discordChannels'),
             h('div#_show_discordMembers',[
               h('span.wrapper',[
-                h('span#_count_discordMembers','0'),
-                h('span#type','Users')
+                h(`i.fa.fa-users`),
+                h('span#_count_discordMembers','0')
+                //h('span#type','Users')
               ])
             ]),
             h('div#discordMembers')

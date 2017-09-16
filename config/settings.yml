@@ -22,7 +22,7 @@ plugins:
       default: "fa-arrow-circle-up"
   layouts_discordinfo_a_selectors:
       client: true
-      default: "#home-button.icon.btn-primary.btn"
+      default: "#chat-linkbutton.icon.btn-primary.btn"
   layouts_discordinfo_a_customstyle:
       client: true
       default: ""

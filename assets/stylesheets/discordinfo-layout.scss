@@ -17,9 +17,13 @@ $infoCircle-size: 35px;
 .widget-container{
   background:$secondary;
 
+  #chat-linkbutton{
+    display: block;
+  }
+
   #discordInfo{
     width:100%;
-    padding-top:50px;
+    padding-top:36px;
 
     #_show_discordPrimaryStyle{
       background: $secondary;
@@ -34,7 +38,7 @@ $infoCircle-size: 35px;
         margin: 0 auto;
         display:block;
         width:$infoCircle-size*2;
-        height:$infoCircle-size;
+        height:25px;
         
         span{
           font-size:2em;

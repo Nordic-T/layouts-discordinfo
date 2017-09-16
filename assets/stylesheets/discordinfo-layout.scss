@@ -8,6 +8,10 @@ $avatar-size: 25px;
           border-radius: $radius;
 }
 
+.borderDiv{
+  border-bottom:1px solid dark-light-diff($primary, $secondary, 90%, -65%);
+}
+
 
 .widget-container{
   background:$secondary;
@@ -29,11 +33,23 @@ $avatar-size: 25px;
     }
   }
   
-  #discordMembers img{
+  #discordMembers{
+    img{
     width:$avatar-size;
     height:$avatar-size;
     @include border-radius(50%);
 
+    }
+
+    div:not(last-of-type){
+      @extend .borderDiv;
+    }
+  }
+}
+
+#discordChannels{
+  div:not(last-of-type){
+    @extend .borderDiv;
   }
 }
 

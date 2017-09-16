@@ -46,11 +46,6 @@ $infoCircle-size: 35px;
         width:$infoCircle-size*2;
         height:25px;
         cursor: pointer;
-
-        :hover{
-          transition: color 0.5s ease;
-          color: $header_background;;
-        }
         
         span{
           font-size:2em;
@@ -65,6 +60,11 @@ $infoCircle-size: 35px;
           width:$infoCircle-size;
           height:$infoCircle-size;
         }
+      }
+
+      span.wrapper:hover{
+        transition: color 0.5s ease;
+        color: $header_background;;
       }
     }
 

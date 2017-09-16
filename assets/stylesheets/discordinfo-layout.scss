@@ -1,6 +1,23 @@
 //primary,secondary,secondary,tertiary,quaternary,header_background,header_primary,highlight,danger,success,love
-#discordInfo{width:236px;}
-#_show_discordChannels, #_show_discordMembers{background: $secondary; padding: 10px 7px;}
+.widget-container{
+  background:$secondary;
+
+  #discordInfo{width:100%;
+    #_show_discordChannels, #_show_discordMembers{
+      background: $secondary;
+      padding: 10px 7px;
+    }
+  }
+  
+  #discordChannels, #discordMembers{
+    background:$header_background
+  }
+  
+  #discordMembers img{
+    width:24px;
+    height:24px;
+  }
+}
 
 .user-profile {
     

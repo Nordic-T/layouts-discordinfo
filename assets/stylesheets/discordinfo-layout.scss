@@ -64,7 +64,7 @@ $infoCircle-size: 35px;
 
       span.wrapper:hover{
         transition: color 0.5s ease;
-        color: dark-light-diff($primary, $secondary, 90%, -65%);
+        color: $tertiary;
       }
     }
 

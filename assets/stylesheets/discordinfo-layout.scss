@@ -33,11 +33,11 @@ $infoCircle-size: 35px;
         text-align: center;
         margin: 0 auto;
         display:block;
-        width:$infoCircle-size;
+        width:$infoCircle-size*2;
         height:$infoCircle-size;
         
         span{
-          color:$secondary;
+          font-size:2em;
         }
 
         i{

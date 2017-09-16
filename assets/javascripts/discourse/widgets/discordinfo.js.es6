@@ -79,6 +79,7 @@ export default createWidget('discordinfo', {
               'target': ((a_opt_newwindow) ? "_blank" : "_self")
             }
           }, [((a_opt_faicon) ? h(`i.fa.${a_faicon}`): ""), a_text]), // Need to mix const's and text? Use something like `Here is my ${a_text} with a ${username}!`
+          h('span', Discourse.User.currentProp('custom_fields.Discord-brugernavn')),
         )
 
         // Global settings

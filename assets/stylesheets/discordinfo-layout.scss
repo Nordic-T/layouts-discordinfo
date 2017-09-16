@@ -25,8 +25,22 @@ $avatar-size: 25px;
       padding: 7px 7px;
       position:absolute;    
       top:0;  
+      width: calc( 50% - 20px);
+      margin:4px;
 
-      span{background-color:$tertiary;}
+      span{
+        text-align: center;
+        margin: 0 auto;
+        display:block;
+        width:35px;
+        height:35px;
+        @include border-radius(50%);
+        background-color:$tertiary;
+        
+        span{
+          color:$secondary;
+        }
+      }
     }
 
     #_show_discordChannels{
@@ -38,9 +52,6 @@ $avatar-size: 25px;
       @extend #_show_discordPrimaryStyle;
       left:0;
     }
-
-
-
   }
 
   #discordChannels, #discordMembers{
@@ -64,66 +75,3 @@ $avatar-size: 25px;
     }
   }
 }
-
-.user-profile {
-    
-      .avatar {
-        float: left;
-      }
-    
-      .profile-top {
-        overflow: hidden;
-        padding: 5px 5px 5px 15px;
-      }
-    
-      .menu-links-header {
-        width: initial;
-        display: block;
-        border-spacing: 0;
-    
-        a {
-          display: inline-block;
-        }
-    
-        .menu-links-row {
-          width: 100%;
-          display: flex;
-          margin: 0;
-        }
-    
-        li:not(.glyphs) {
-          display: initial;
-        }
-    
-        a.user-activity-link {
-          margin: initial;
-        }
-    
-        .glyphs {
-          display: initial;
-          flex: 1;
-        }
-      }
-    
-      .profile-actions {
-        padding-top: 4px;
-        width: 100%;
-    
-        button, .widget-component-connector {
-          display: inline-block;
-          vertical-align: top;
-          margin-right: 7px;
-          margin-top: 7px;
-        }
-    
-        .widget-component-connector .dropdown-select-box.dropdown-select-box {
-          height: initial;
-    
-          .dropdown-header .btn {
-            padding: 3px 6px;
-            font-size: 0.857em;
-            line-height: 16px;
-          }
-        }
-      }
-    }

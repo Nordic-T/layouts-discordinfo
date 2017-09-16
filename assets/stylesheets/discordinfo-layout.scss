@@ -1,21 +1,39 @@
 //primary,secondary,secondary,tertiary,quaternary,header_background,header_primary,highlight,danger,success,love
+$avatar-size: 25px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
 .widget-container{
   background:$secondary;
 
-  #discordInfo{width:100%;
+  #discordInfo{
+    width:100%;
+
     #_show_discordChannels, #_show_discordMembers{
       background: $secondary;
       padding: 10px 7px;
     }
   }
-  
+
   #discordChannels, #discordMembers{
-    background:$header_background
+    background:$header_background;
+
+    span{
+      padding: 5px;
+    }
   }
   
   #discordMembers img{
-    width:24px;
-    height:24px;
+    width:$avatar-size;
+    height:$avatar-size;
+    @include border-radius(50%);
+
   }
 }
 

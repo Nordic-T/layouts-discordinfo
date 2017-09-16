@@ -59,10 +59,13 @@ export default createWidget('discordinfo', {
         // Frontpage content goes here.
         contents.push(
           h('div#discordInfo',[
-            h('div#_show_discordChannels',[
-              h('span#_count_discordChannels','0'),
-              h('span#type','Channels')
-            ]),
+            h('div#_show_discordChannels', 
+              h('span',[
+                h('span#_count_discordChannels','0'),
+                h('span#type','Channels')
+                ]
+              )
+            ),
             h('div#discordChannels'),
             h('div#_show_discordMembers',[
               h('span#_count_discordMembers','0'),

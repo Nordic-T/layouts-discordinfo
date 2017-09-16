@@ -67,7 +67,7 @@ export default createWidget('discordinfo', {
             ]),
             h('div#discordChannels'),
             h('div#_show_discordMembers',[
-              h('span.wrapper'[
+              h('span.wrapper',[
                 h('span#_count_discordMembers','0'),
                 h('span#type','Users')
               ])

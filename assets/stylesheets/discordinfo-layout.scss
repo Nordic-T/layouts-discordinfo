@@ -44,10 +44,6 @@ $avatar-size: 25px;
     div{
       padding:2px 4px;
     }
-
-    div:not(last-of-type){
-      @extend .borderDiv;
-    }
   }
 }
 

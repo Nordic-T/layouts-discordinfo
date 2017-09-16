@@ -33,7 +33,7 @@ $avatar-size: 25px;
     }
   }
   
-  #discordMembers{
+  #discordMembers, #discordChannels{
     img{
     width:$avatar-size;
     height:$avatar-size;
@@ -41,15 +41,13 @@ $avatar-size: 25px;
 
     }
 
+    div{
+      padding:2px 4px;
+    }
+
     div:not(last-of-type){
       @extend .borderDiv;
     }
-  }
-}
-
-#discordChannels{
-  div:not(last-of-type){
-    @extend .borderDiv;
   }
 }
 

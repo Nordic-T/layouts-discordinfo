@@ -1,4 +1,10 @@
 //primary,secondary,secondary,tertiary,quaternary,header_background,header_primary,highlight,danger,success,love
+
+// TO-DO
+//
+// - Smid hover på de to knapper (så baggrunden ændre sig lidt), og også en tekst hvad de to forskellige ting tæller
+//
+//
 $avatar-size: 25px;
 $infoCircle-size: 35px;
 
@@ -39,6 +45,11 @@ $infoCircle-size: 35px;
         display:block;
         width:$infoCircle-size*2;
         height:25px;
+        cursor: pointer;
+
+        :hover{
+          background:$header_background;
+        }
         
         span{
           font-size:2em;

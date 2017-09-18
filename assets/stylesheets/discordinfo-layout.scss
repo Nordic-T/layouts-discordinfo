@@ -1,9 +1,7 @@
 //primary,secondary,secondary,tertiary,quaternary,header_background,header_primary,highlight,danger,success,love
 
 // TO-DO
-//
-// - Smid hover på de to knapper (så baggrunden ændre sig lidt), og også en tekst hvad de to forskellige ting tæller
-//
+// Tilføj hover-tekst til de to ting
 //
 $avatar-size: 25px;
 $infoCircle-size: 35px;
@@ -34,7 +32,15 @@ noBorder{
 }
 
 // Style for plugin
-
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -48,6 +54,7 @@ noBorder{
 
   #chat-linkbutton{
     display: block;
+    @include border-radius(0px 0px 4px 4px)
   }
 
   #discordInfo{
@@ -56,15 +63,14 @@ noBorder{
 
     #_show_discordPrimaryStyle{
       /*background: $secondary;*/
-      padding: 7px 7px;
+      padding: 7px 7px 0px 0px;
       position:absolute;    
       top:0;  
       width: calc( 50% - 20px);
       margin:4px;
 
       span.wrapper{
-        text-align: center;
-        margin: 0 auto;
+        margin-left: 25px;
         display:block;
         width:$infoCircle-size*2;
         height:25px;
@@ -72,8 +78,8 @@ noBorder{
         color:$primary;
         
         span{
-          font-size:2em;
-          display: inline;
+          font-size:1.6em;
+          vertical-align: top;
         }
 
         i{

@@ -20,6 +20,12 @@ plugins:
   layouts_discordinfo_a_faicon:
       client: true
       default: "fa-arrow-circle-up"
+  layouts_discordinfo_users_faicon:
+      client: true
+      default: "fa-users"
+  layouts_discordinfo_channels_faicon:
+      client: true
+      default: "fa-commenting"
   layouts_discordinfo_a_selectors:
       client: true
       default: "#chat-linkbutton.icon.btn.btn-default.btn-icon-text.ember-view"

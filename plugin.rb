@@ -11,3 +11,4 @@ register_asset 'stylesheets/discordinfo-layout.scss'
 after_initialize do
   DiscourseLayouts::WidgetHelper.add_widget('discordinfo')
 end
+

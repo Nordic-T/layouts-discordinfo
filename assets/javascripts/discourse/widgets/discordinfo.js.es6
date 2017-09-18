@@ -29,6 +29,8 @@ export default createWidget('discordinfo', {
     const a_href = Discourse.SiteSettings.layouts_discordinfo_a_href;
     const a_hover = Discourse.SiteSettings.layouts_discordinfo_a_hover;
     const a_faicon = Discourse.SiteSettings.layouts_discordinfo_a_faicon;
+    const users_faicon = Discourse.SiteSettings.layouts_discordinfo_users_faicon;
+    const channels_faicon = Discourse.SiteSettings.layouts_discordinfo_channels_faicon;
     const a_selectors = Discourse.SiteSettings.layouts_discordinfo_a_selectors;
     const a_customstyle = Discourse.SiteSettings.layouts_discordinfo_a_customstyle;
 
@@ -61,16 +63,16 @@ export default createWidget('discordinfo', {
           h('div#discordInfo',[
             h('div#_show_discordChannels',[
               h('span.wrapper',[
-                h(`i.fa.fa-commenting`),
-                h('span#_count_discordChannels','')
+                h(`i.fa.${channels_faicon}`),
+                h('span#_count_discordChannels.noselect',' ')
                 //h('span#type','Channels')
               ])
             ]),
             h('div#discordChannels'),
             h('div#_show_discordMembers',[
               h('span.wrapper',[
-                h(`i.fa.fa-users`),
-                h('span#_count_discordMembers','')
+                h(`i.fa.${users_faicon}`),
+                h('span#_count_discordMembers.noselect',' ')
                 //h('span#type','Users')
               ])
             ]),

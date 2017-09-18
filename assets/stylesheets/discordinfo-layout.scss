@@ -60,8 +60,7 @@ noBorder{
       margin:4px;
 
       span.wrapper{
-        text-align: center;
-        margin-left: 16px;
+        margin-left: 25px;
         display:block;
         width:$infoCircle-size*2;
         height:25px;
@@ -69,8 +68,8 @@ noBorder{
         color:$primary;
         
         span{
-          font-size:2em;
-          display: inline;
+          font-size:1.6em;
+          vertical-align: top;
         }
 
         i{

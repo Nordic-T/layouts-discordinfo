@@ -18,6 +18,7 @@ noBorder{
 
 .layouts-discordinfo{
   background:$secondary;
+  border: 1px solid dark-light-diff($primary, $secondary, 90%, -65%);
 }
 
 // STYLING TO OTHER WIDGETS - SHOULD BE MOVED TO STYLE/PLUGIN
@@ -25,8 +26,8 @@ noBorder{
   @extend .topic-list-main-link;
 }
 
-.layouts-discordinfo a.list-title{
-  color:dark-light-choose(scale-color($primary, $lightness: 50%), scale-color($secondary, $lightness: 50%));
+.sidebar-content a.widget-link.list-title{
+  color:dark-light-choose(scale-color($primary, $lightness: 50%), scale-color($secondary, $lightness: 50%))!important;
 }
 
 

@@ -7,9 +7,21 @@
 //
 $avatar-size: 25px;
 $infoCircle-size: 35px;
+noBorder{
+  border:none!important;
+}
 
 // STYLING TO THE MAIN SITE - SHOULD BE REMOVED IN THE FUTURE
-aside .sidebar-container{background-color:$primary-low}
+// aside.sidebar .sidebar-container{
+//   background:$primary-low;
+// }
+
+.widget-container{
+  @extend noBorder;
+  background:$primary-low;
+}
+
+
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;

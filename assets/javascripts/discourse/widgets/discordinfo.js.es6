@@ -137,16 +137,16 @@ export default createWidget('discordinfo', {
             $('#_count_discordMembers').text(data.members.length);
           });
         }
+
         init();
-        $(document).ready(function(){
-          
-          $('#_show_discordChannels').on('click', function(e){
-            $('#discordChannels').slideToggle('fast');
-          });
-          $('#_show_discordMembers').on('click', function(e){
-            $('#discordMembers').slideToggle('fast');
-          });
+        
+        $('#_show_discordChannels').on('click', function(e){
+          $('#discordChannels').slideToggle('fast');
         });
+        $('#_show_discordMembers').on('click', function(e){
+          $('#discordMembers').slideToggle('fast');
+        });
+
 
       }
    }

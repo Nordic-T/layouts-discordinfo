@@ -24,6 +24,13 @@ noBorder{
 // STYLING TO OTHER WIDGETS - SHOULD BE MOVED TO STYLE/PLUGIN
 .sidebar-content a.widget-link.list-title{
   color:dark-light-choose(scale-color($primary, $lightness: 50%), scale-color($secondary, $lightness: 50%))!important;
+  font-weight: normal;
+  font-size: 1em;
+  text-decoration: none!important;
+}
+
+.sidebar-content a.widget-link.topic-link{
+  color:$primary!important;
 }
 
 // Style for plugin

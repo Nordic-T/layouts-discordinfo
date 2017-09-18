@@ -22,13 +22,11 @@ noBorder{
 }
 
 // STYLING TO OTHER WIDGETS - SHOULD BE MOVED TO STYLE/PLUGIN
-.layouts-discordinfo.topic-link span{
-  @extend .topic-list-main-link;
-}
-
 .sidebar-content a.widget-link.list-title{
   color:dark-light-choose(scale-color($primary, $lightness: 50%), scale-color($secondary, $lightness: 50%))!important;
 }
+
+// Style for plugin
 
 
 @mixin border-radius($radius) {
@@ -39,7 +37,7 @@ noBorder{
 }
 
 .layouts-discordinfo{
-  /*background:$secondary;*/
+  @include border-radius(4px);
 
   #chat-linkbutton{
     display: block;
@@ -53,7 +51,7 @@ noBorder{
       /*background: $secondary;*/
       padding: 7px 7px;
       position:absolute;    
-      top:5px;  
+      top:0;  
       width: calc( 50% - 20px);
       margin:4px;
 
@@ -100,7 +98,7 @@ noBorder{
 
   #discordChannels, #discordMembers{
     /*background:$header_background;*/
-    margin-bottom:5px;
+    margin:10px;
 
     span{
       padding: 5px;

@@ -21,7 +21,7 @@ $infoCircle-size: 35px;
 
 
 .widget-container{
-  background:$secondary;
+  /*background:$secondary;*/
 
   #chat-linkbutton{
     display: block;
@@ -32,7 +32,7 @@ $infoCircle-size: 35px;
     padding-top:36px;
 
     #_show_discordPrimaryStyle{
-      background: $secondary;
+      /*background: $secondary;*/
       padding: 7px 7px;
       position:absolute;    
       top:0;  
@@ -80,7 +80,7 @@ $infoCircle-size: 35px;
   }
 
   #discordChannels, #discordMembers{
-    background:$header_background;
+    /*background:$header_background;*/
 
     span{
       padding: 5px;

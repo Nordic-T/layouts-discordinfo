@@ -17,11 +17,11 @@ noBorder{
 // }
 
 .widget-container{
-  background:$primary;
+  background:$secondary;
 }
 
 // STYLING TO OTHER WIDGETS - SHOULD BE MOVED TO STYLE/PLUGIN
-.widget-container .topic-link{
+.widget-container.topic-link{
   @extend .topic-list-main-link;
 }
 

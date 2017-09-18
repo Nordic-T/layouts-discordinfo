@@ -5,7 +5,7 @@ import RawHtml from 'discourse/widgets/raw-html';
 import showModal from 'discourse/lib/show-modal';
 
 export default createWidget('discordinfo', {
-  tagName: 'div.layout.layout-discordinfo.widget-container',
+  tagName: 'div.layout.layouts-discordinfo',
   buildKey: (attrs) => 'discordinfo',
 
   defaultState(attrs) {
@@ -150,7 +150,7 @@ export default createWidget('discordinfo', {
 
       }
    }
-       
+
     return h('div.widget-inner', contents);
   }
 

@@ -16,14 +16,19 @@ noBorder{
 //   background:$primary-low;
 // }
 
-.widget-container{
+.layouts-discordinfo{
   background:$secondary;
 }
 
 // STYLING TO OTHER WIDGETS - SHOULD BE MOVED TO STYLE/PLUGIN
-.widget-container.topic-link span{
+.layouts-discordinfo.topic-link span{
   @extend .topic-list-main-link;
 }
+
+.layouts-discordinfo a.list-title{
+  color:dark-light-choose(scale-color($primary, $lightness: 50%), scale-color($secondary, $lightness: 50%));
+}
+
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -32,7 +37,7 @@ noBorder{
           border-radius: $radius;
 }
 
-.widget-container{
+.layouts-discordinfo{
   /*background:$secondary;*/
 
   #chat-linkbutton{

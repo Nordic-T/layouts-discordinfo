@@ -8,6 +8,9 @@
 $avatar-size: 25px;
 $infoCircle-size: 35px;
 
+// STYLING TO THE MAIN SITE - SHOULD BE REMOVED IN THE FUTURE
+aside .sidebar-container{background-color:$primary-low}
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;

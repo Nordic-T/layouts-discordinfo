@@ -17,8 +17,7 @@ noBorder{
 // }
 
 .widget-container{
-  @extend noBorder;
-  background:dark-light-diff($primary, $secondary, 90%, -65%);
+  background:$primary;
 }
 
 

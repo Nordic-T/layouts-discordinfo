@@ -150,9 +150,7 @@ export default createWidget('discordinfo', {
 
       }
    }
-
-    contents.push(h('hr')) //This is just a linebreak
-    
+       
     return h('div.widget-inner', contents);
   }
 

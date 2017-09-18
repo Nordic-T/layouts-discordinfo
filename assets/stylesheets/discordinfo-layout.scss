@@ -50,7 +50,7 @@ noBorder{
       /*background: $secondary;*/
       padding: 7px 7px;
       position:absolute;    
-      top:0;  
+      top:5px;  
       width: calc( 50% - 20px);
       margin:4px;
 
@@ -97,6 +97,7 @@ noBorder{
 
   #discordChannels, #discordMembers{
     /*background:$header_background;*/
+    margin-bottom:5px;
 
     span{
       padding: 5px;

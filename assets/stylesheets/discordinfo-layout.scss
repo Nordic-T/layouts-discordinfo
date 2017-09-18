@@ -18,7 +18,7 @@ noBorder{
 
 .widget-container{
   @extend noBorder;
-  background:$primary-low;
+  background:dark-light-diff($primary, $secondary, 90%, -65%);
 }
 
 
@@ -29,11 +29,6 @@ noBorder{
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
-
-.borderDiv{
-  border-bottom:1px solid dark-light-diff($primary, $secondary, 90%, -65%);
-}
-
 
 .widget-container{
   /*background:$secondary;*/

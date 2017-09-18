@@ -137,9 +137,8 @@ export default createWidget('discordinfo', {
             $('#_count_discordMembers').text(data.members.length);
           });
         }
-
+        init();
         $(document).ready(function(){
-          init();
           
           $('#_show_discordChannels').on('click', function(e){
             $('#discordChannels').slideToggle('fast');

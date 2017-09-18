@@ -64,7 +64,7 @@ export default createWidget('discordinfo', {
             h('div#_show_discordChannels',[
               h('span.wrapper',[
                 h(`i.fa.${channels_faicon}`),
-                h('span#_count_discordChannels','')
+                h('span#_count_discordChannels',' ')
                 //h('span#type','Channels')
               ])
             ]),
@@ -72,7 +72,7 @@ export default createWidget('discordinfo', {
             h('div#_show_discordMembers',[
               h('span.wrapper',[
                 h(`i.fa.${users_faicon}`),
-                h('span#_count_discordMembers','')
+                h('span#_count_discordMembers',' ')
                 //h('span#type','Users')
               ])
             ]),

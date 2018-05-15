@@ -137,8 +137,9 @@ export default createWidget('discordinfo', {
             $('#discordMembers').html(members); 
             // Update member count
             $('#_count_discordMembers').text(data.members.length);
-
-            if(data.members.includes(username)){
+            console.log(data.members);
+            console.log(data.members.toString());
+            if(data.members.toString().indexOf(username)){
               $('#chat-linkbutton').show()
             }
           });

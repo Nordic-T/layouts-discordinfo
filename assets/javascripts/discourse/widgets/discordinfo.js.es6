@@ -116,6 +116,7 @@ export default createWidget('discordinfo', {
           $.get('https://discordapp.com/api/servers/'+settings.serverIdentifier+'/embed.json', function(data){
             var channels = "";
             var members = "";
+            var notpresent = true;
             // Channels
             for (var i=0;i<data.channels.length;i++)
             {
@@ -126,8 +127,18 @@ export default createWidget('discordinfo', {
             for (var i=0;i<data.members.length;i++)
             {
               var elem = data.members[i];
-              members += "<div class='discord-user'><img src="+elem.avatar_url+" /><span>"+(elem.nick != null ? elem.nick : elem.username)+"</span></div>";
+              var name = elem.nick != null ? elem.nick : elem.username;
+              members += "<div class='discord-user'><img src="+elem.avatar_url+" /><span>"+name+"</span></div>";
+
+              if(name === username){
+                notpresent = false;
+              }
             }
+            // Show join-text if user isn't present in Discord list
+            if(notpresent){
+              $('#chat-linkbutton').show()
+            }
+
             // Populate channels
             $('#discordChannels').html(channels); 
             // Update channel count
@@ -137,11 +148,6 @@ export default createWidget('discordinfo', {
             $('#discordMembers').html(members); 
             // Update member count
             $('#_count_discordMembers').text(data.members.length);
-            console.log(data.members);
-            console.log(data.members.toString());
-            if(data.members.toString().indexOf(username)){
-              $('#chat-linkbutton').show()
-            }
           });
         }
 

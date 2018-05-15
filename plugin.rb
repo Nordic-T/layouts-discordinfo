@@ -1,6 +1,6 @@
 # name: layouts-discordinfo
 # about: Layout with informations from Discord
-# version: 0.1
+# version: 0.2
 # authors: Tobias / exetico
 # url: https://github.com/Nordic-T/layouts-discordinfo/
 

@@ -78,10 +78,10 @@ export default createWidget('discordinfo', {
             ]),
             h('div#discordMembers')
           ]),
-          h(`a ${a_selectors}`, {
+          h(`a ${"#discordInfo-linkbutton" + a_selectors}`, {
             href: a_href,
             title: a_hover,
-            style: a_customstyle,
+            style: "display:none;" + a_customstyle,
             attributes: {
               'aria-label': a_hover,
               'target': ((a_opt_newwindow) ? "_blank" : "_self")
@@ -137,6 +137,10 @@ export default createWidget('discordinfo', {
             $('#discordMembers').html(members); 
             // Update member count
             $('#_count_discordMembers').text(data.members.length);
+
+            if(!(data.members.includes(username))){
+              $('#chat-linkbutton').show()
+            }
           });
         }
 

@@ -5,6 +5,8 @@ Remember to add [Discourse Layouts](https://github.com/angusmcleod/discourse-lay
 
 # To-do
 - Put info in widget, if layouts_discordinfo_identifier isn't provided, any maybe other stuff...
+- Change icon-solution, cause Discourse complaning about this. `DEPRECATION: Use `{{d-icon}}` instead of `{{fa-icon}}`
+
 
 # Fixed
 - ~~Hide "join now" if the user is foind in the informations from Discord~~ : Added 15-05-2018

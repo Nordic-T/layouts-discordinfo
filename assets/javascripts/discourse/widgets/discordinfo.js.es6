@@ -136,7 +136,7 @@ export default createWidget('discordinfo', {
             }
             // Show join-text if user isn't present in Discord list
             if(notpresent){
-              $('#chat-linkbutton').show()
+              $('#discordInfo-linkbutton').show()
             }
 
             // Populate channels

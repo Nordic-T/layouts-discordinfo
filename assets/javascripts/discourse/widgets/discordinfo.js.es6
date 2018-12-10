@@ -3,6 +3,7 @@ import { h } from 'virtual-dom';
 import { cook } from 'discourse/lib/text';
 import RawHtml from 'discourse/widgets/raw-html';
 import showModal from 'discourse/lib/show-modal';
+import { iconHTML } from "discourse-common/lib/icon-library";
 
 export default createWidget('discordinfo', {
   tagName: 'div.layout.layouts-discordinfo',
@@ -41,6 +42,10 @@ export default createWidget('discordinfo', {
     const startChannelsCollapsed = Discourse.SiteSettings.layouts_discordinfo_startChannelsCollapsed;
     const startMembersCollapsed = Discourse.SiteSettings.layouts_discordinfo_startMembersCollapsed;
 
+    // New icons TEST
+    let icon = iconHTML('users');
+
+    // NEW ICONS TEST END
     ((a_text.indexOf('@username') >= 0) ? a_text = a_text.replace("@username", username) : a_text);
     
     let contents = []
@@ -63,7 +68,8 @@ export default createWidget('discordinfo', {
           h('div#discordInfo',[
             h('div#_show_discordChannels',[
               h('span.wrapper',[
-                h(`i.fa.${channels_faicon}`),
+                // SWITCHED TO SVG.... See https://meta.discourse.org/t/introducing-font-awesome-5-and-svg-icons/101643/6 - <svg class="fa d-icon d-icon-users svg-icon svg-node" aria-hidden="true"><use xlink:href="#users"></use></svg>
+                h(icon),
                 h('span#_count_discordChannels.noselect',' ')
                 //h('span#type','Channels')
               ])
@@ -71,7 +77,7 @@ export default createWidget('discordinfo', {
             h('div#discordChannels'),
             h('div#_show_discordMembers',[
               h('span.wrapper',[
-                h(`i.fa.${users_faicon}`),
+                h(`i.fas.${users_faicon}`),
                 h('span#_count_discordMembers.noselect',' ')
                 //h('span#type','Users')
               ])
@@ -86,7 +92,7 @@ export default createWidget('discordinfo', {
               'aria-label': a_hover,
               'target': ((a_opt_newwindow) ? "_blank" : "_self")
             }
-          }, [((a_opt_faicon) ? h(`i.fa.${a_faicon}`): ""), a_text]), // Need to mix const's and text? Use something like `Here is my ${a_text} with a ${username}!`
+          }, [((a_opt_faicon) ? h(`i.fas.${a_faicon}`): ""), a_text]), // Need to mix const's and text? Use something like `Here is my ${a_text} with a ${username}!`
           h('span', Discourse.User.currentProp('custom_fields.Discord-brugernavn')),
         )
 

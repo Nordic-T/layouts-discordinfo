@@ -8,6 +8,8 @@ enabled_site_setting :layouts_discordinfo_a_text
 
 register_asset 'stylesheets/discordinfo-layout.scss'
 
+register_svg_icon "users" if respond_to?(:register_svg_icon)
+
 DiscourseEvent.on(:layouts_ready) do
   if defined?(DiscourseLayouts) == 'constant' && DiscourseLayouts.class == Module
     DiscourseLayouts::WidgetHelper.add_widget('discordinfo')

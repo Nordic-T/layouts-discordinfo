@@ -17,18 +17,9 @@ plugins:
   layouts_discordinfo_a_hover:
       client: true
       default: "..join us today!"
-  layouts_discordinfo_a_faicon:
+  layouts_discordinfo_a_classes:
       client: true
-      default: "fa-arrow-circle-up"
-  layouts_discordinfo_users_faicon:
-      client: true
-      default: "fa-users"
-  layouts_discordinfo_channels_faicon:
-      client: true
-      default: "fa-commenting"
-  layouts_discordinfo_a_selectors:
-      client: true
-      default: "#chat-linkbutton.icon.btn.btn-default.btn-icon-text.ember-view"
+      default: icon btn btn default btn-icon-text ember-view"
   layouts_discordinfo_a_customstyle:
       client: true
       default: ""

@@ -4,7 +4,7 @@
 // Tilføj hover-tekst til de to ting
 //
 $avatar-size: 25px;
-$infoCircle-size: 35px;
+$infoCircle-size: 25px;
 noBorder{
   border:none!important;
 }
@@ -52,12 +52,12 @@ noBorder{
 .layouts-discordinfo{
   @include border-radius(4px);
 
-  #discordInfo-linkbutton{
+  #discordinfo-linkbutton{
     display: block;
     @include border-radius(0px 0px 4px 4px)
   }
 
-  #discordInfo{
+  #discordinfo{
     width:100%;
     padding-top:42px;
 
@@ -66,28 +66,29 @@ noBorder{
       padding: 2px 7px 0px 0px;
       position:absolute;    
       top:0;  
-      width: calc( 50% - 20px);
+      width: calc( 50% - 10px);
       margin:4px;
 
       span.wrapper{
         margin-left: 25px;
         display:block;
-        width:$infoCircle-size*2;
+        width:$infoCircle-size*3;
         height:25px;
         cursor: pointer;
         color:$primary;
-        
-        span{
-          font-size:1.6em;
-        }
 
-        i{
-          font-size: 1.50em;
+        svg.fa{
           display: block;
-          font-size:1.5em;
+          font-size:1.0em;
           display: inline-block;
           width:$infoCircle-size;
           height:$infoCircle-size;
+          padding:0px 8px;
+        }
+        
+        span{
+          font-size:1.4em;
+          vertical-align: text-bottom;
         }
       }
 

@@ -1,8 +1,6 @@
 import { createWidget } from 'discourse/widgets/widget';
+import { iconHTML } from "discourse-common/lib/icon-library";
 import { h } from 'virtual-dom';
-import { cook } from 'discourse/lib/text';
-import RawHtml from 'discourse/widgets/raw-html';
-import showModal from 'discourse/lib/show-modal';
 
 export default createWidget('discordinfo', {
   tagName: 'div.layout.layouts-discordinfo',
@@ -10,7 +8,7 @@ export default createWidget('discordinfo', {
 
   defaultState(attrs) {
     return {
-      topic: attrs.topic
+      renderScheduled: false
     }
   },
 
@@ -23,15 +21,13 @@ export default createWidget('discordinfo', {
     const { currentUser } = this;
     const topic = state.topic;
     const username = currentUser.get('username');
+    const discord_username =  Discourse.User.currentProp('custom_fields.Discord-brugernavn');
 
     let a_text = Discourse.SiteSettings.layouts_discordinfo_a_text;
 
     const a_href = Discourse.SiteSettings.layouts_discordinfo_a_href;
     const a_hover = Discourse.SiteSettings.layouts_discordinfo_a_hover;
-    const a_faicon = Discourse.SiteSettings.layouts_discordinfo_a_faicon;
-    const users_faicon = Discourse.SiteSettings.layouts_discordinfo_users_faicon;
-    const channels_faicon = Discourse.SiteSettings.layouts_discordinfo_channels_faicon;
-    const a_selectors = Discourse.SiteSettings.layouts_discordinfo_a_selectors;
+    const a_classes = Discourse.SiteSettings.layouts_discordinfo_a_classes;
     const a_customstyle = Discourse.SiteSettings.layouts_discordinfo_a_customstyle;
 
     const a_opt_newwindow = Discourse.SiteSettings.layouts_discordinfo_opt_a_newwindow;
@@ -48,47 +44,28 @@ export default createWidget('discordinfo', {
     if (currentUser && !this.site.mobileView) {
     //Content for both topic and frontpage goes here, if the user is logged in
 
-      if (topic) {
-        // Topic-content goes here
+      if (!(topic)) {
         contents.push(
-          h('div.handles', [
-            h('p', `Nothing here at the moment m8!`)
-          ])
-        )
-      } 
+          h(`div.layouts-discordinfo-inner`, {
+            style: "min-height:42px"
+          })) // Need to mix const's and text? Use something like `Here is my ${a_text} with a ${username}!`
 
-      else{
         // Frontpage content goes here.
-        contents.push(
-          h('div#discordInfo',[
-            h('div#_show_discordChannels',[
-              h('span.wrapper',[
-                h(`i.fa.${channels_faicon}`),
-                h('span#_count_discordChannels.noselect',' ')
-                //h('span#type','Channels')
-              ])
-            ]),
-            h('div#discordChannels'),
-            h('div#_show_discordMembers',[
-              h('span.wrapper',[
-                h(`i.fa.${users_faicon}`),
-                h('span#_count_discordMembers.noselect',' ')
-                //h('span#type','Users')
-              ])
-            ]),
-            h('div#discordMembers')
-          ]),
-          h(`a ${"#discordInfo-linkbutton" + a_selectors}`, {
-            href: a_href,
-            title: a_hover,
-            style: "display:none;" + a_customstyle,
-            attributes: {
-              'aria-label': a_hover,
-              'target': ((a_opt_newwindow) ? "_blank" : "_self")
-            }
-          }, [((a_opt_faicon) ? h(`i.fa.${a_faicon}`): ""), a_text]), // Need to mix const's and text? Use something like `Here is my ${a_text} with a ${username}!`
-          h('span', Discourse.User.currentProp('custom_fields.Discord-brugernavn')),
-        )
+        if (!state.renderScheduled) {
+        let html = `
+        <div id="discordinfo">
+        <div id="_show_discordChannels"><span class="wrapper">${iconHTML('comment-dots')}</i><span id="_count_discordChannels" class="noselect"> </span></span></div>
+        <div id="discordChannels"></div>
+        <div id="_show_discordMembers"><span class="wrapper">${iconHTML('users')}</i><span id="_count_discordMembers" class="noselect"> </span></span></div>
+        <div id="discordMembers"></div>
+        </div>
+        
+        <a href="${a_href}" title="${a_hover}" style="display: none; ${a_customstyle}" aria-label="${a_hover}" target="${((a_opt_newwindow) ? "_blank" : "_self")}" id="discordinfo-linkbutton" class="${a_classes}">${a_opt_faicon && iconHTML('arrow-circle-up')}${a_text}</a>
+        `
+
+        Ember.run.scheduleOnce('afterRender', this, function() {
+          $("div.layouts-discordinfo-inner").append(`<div class='contents'>${html}</div>`);
+
 
         // Global settings
         var settings = {};
@@ -130,41 +107,60 @@ export default createWidget('discordinfo', {
               var name = elem.nick != null ? elem.nick : elem.username;
               members += "<div class='discord-user'><img src="+elem.avatar_url+" /><span>"+name+"</span></div>";
 
-              if(name === username){
+              if(name === username || name === discord_username){
                 notpresent = false;
               }
             }
             // Show join-text if user isn't present in Discord list
             if(notpresent){
-              $('#discordInfo-linkbutton').show()
+              $('#discordinfo-linkbutton').show()
             }
 
             // Populate channels
-            $('#discordChannels').html(channels); 
-            // Update channel count
-            $('#_count_discordChannels').text(data.channels.length);
+            if(data.channels.length === 0){
+              $('#discordChannels').html("<center>No data to show...</center>");   
+              $('#_count_discordChannels').text("-");
+            }else{
+              $('#discordChannels').html(channels);   
+              $('#_count_discordChannels').text(data.channels.length);
+            }
 
-            // Populate members
-            $('#discordMembers').html(members); 
-            // Update member count
-            $('#_count_discordMembers').text(data.members.length);
+            // Populate channels
+            if(data.members.length === 0){
+              $('#discordMembers').html("<center>No data to show...</center>");   
+              $('#_count_discordMembers').text("-");
+            }else{
+              $('#discordMembers').html(members); 
+              $('#_count_discordMembers').text(data.members.length);
+            }
+
           });
+
+          intToggle();
         }
 
-        init();
-        
-        $('#_show_discordChannels').on('click', function(e){
-          $('#discordChannels').slideToggle('fast');
+        function intToggle(){
+          $('#_show_discordChannels').on('click', function(e){
+            $('#discordChannels').slideToggle('fast');
+          });
+          $('#_show_discordMembers').on('click', function(e){
+            $('#discordMembers').slideToggle('fast');
+          });
+        }
+        init(); // FOLD IND UD VIRKER IKKKE...
+
+
+
         });
-        $('#_show_discordMembers').on('click', function(e){
-          $('#discordMembers').slideToggle('fast');
-        });
+        state.renderScheduled = true;
 
 
       }
    }
-
+    }
+    //return iconHTML('comment-dots');
     return h('div.widget-inner', contents);
+    //return '';
   }
 
 });

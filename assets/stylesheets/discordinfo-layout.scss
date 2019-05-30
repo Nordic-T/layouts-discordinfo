@@ -59,23 +59,22 @@ noBorder{
 
   #discordinfo{
     width:100%;
-    padding-top:42px;
+    text-align:center;
+    display:         flex;
+    flex-wrap:       wrap;
+    justify-content: center;
 
     #_show_discordPrimaryStyle{
-      /*background: $secondary;*/
-      padding: 2px 7px 0px 0px;
-      position:absolute;    
-      top:0;  
       width: calc( 50% - 10px);
-      margin:4px;
+      padding:5px;
 
       span.wrapper{
-        margin-left: 25px;
         display:block;
         width:$infoCircle-size*3;
         height:25px;
         cursor: pointer;
         color:$primary;
+        margin: 0 auto;
 
         svg.fa{
           display: block;
@@ -83,12 +82,13 @@ noBorder{
           display: inline-block;
           width:$infoCircle-size;
           height:$infoCircle-size;
-          padding:0px 8px;
+          padding:0px 4px;
         }
         
         span{
           font-size:1.4em;
           vertical-align: text-bottom;
+          padding:0px 4px;
         }
       }
 
@@ -100,18 +100,17 @@ noBorder{
 
     #_show_discordChannels{
       @extend #_show_discordPrimaryStyle;
-      right:0;
     }
 
     #_show_discordMembers{
       @extend #_show_discordPrimaryStyle;
-      left:0;
     }
   }
 
   #discordChannels, #discordMembers{
     /*background:$header_background;*/
     margin:10px;
+    text-align:left;
 
     span{
       padding: 5px;

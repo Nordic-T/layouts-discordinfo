@@ -34,8 +34,15 @@ export default createWidget('discordinfo', {
     const a_opt_faicon = Discourse.SiteSettings.layouts_discordinfo_opt_a_faicon;
 
     const identifier = Discourse.SiteSettings.layouts_discordinfo_identifier;
-    const startChannelsCollapsed = Discourse.SiteSettings.layouts_discordinfo_startChannelsCollapsed;
-    const startMembersCollapsed = Discourse.SiteSettings.layouts_discordinfo_startMembersCollapsed;
+    
+    const startCollapsed = {
+      Channels: Discourse.SiteSettings.layouts_discordinfo_startChannelsCollapsed,
+      Members: Discourse.SiteSettings.layouts_discordinfo_startMembersCollapsed
+    }
+
+    const counter = '_count_';
+    const icon = '_show_';
+    const types = ['Members', 'Channels'];
 
     ((a_text.indexOf('@username') >= 0) ? a_text = a_text.replace("@username", username) : a_text);
     
@@ -54,10 +61,10 @@ export default createWidget('discordinfo', {
         if (!state.renderScheduled) {
         let html = `
         <div id="discordinfo">
-        <div id="_show_discordChannels"><span class="wrapper">${iconHTML('comment-dots')}</i><span id="_count_discordChannels" class="noselect"> </span></span></div>
-        <div id="discordChannels"></div>
-        <div id="_show_discordMembers"><span class="wrapper">${iconHTML('users')}</i><span id="_count_discordMembers" class="noselect"> </span></span></div>
+        <div id="_show_discordMembers" style="display:none"><span class="wrapper">${iconHTML('users')}</i><span id="_count_discordMembers" class="noselect"> </span></span></div>
+        <div id="_show_discordChannels" style="display:none"><span class="wrapper">${iconHTML('comment-dots')}</i><span id="_count_discordChannels" class="noselect"> </span></span></div>
         <div id="discordMembers"></div>
+        <div id="discordChannels"></div>
         </div>
         
         <a href="${a_href}" title="${a_hover}" style="display: none; ${a_customstyle}" aria-label="${a_hover}" target="${((a_opt_newwindow) ? "_blank" : "_self")}" id="discordinfo-linkbutton" class="${a_classes}">${a_opt_faicon && iconHTML('arrow-circle-up')}${a_text}</a>
@@ -66,101 +73,88 @@ export default createWidget('discordinfo', {
         Ember.run.scheduleOnce('afterRender', this, function() {
           $("div.layouts-discordinfo-inner").append(`<div class='contents'>${html}</div>`);
 
-
-        // Global settings
-        var settings = {};
-        settings.serverIdentifier = identifier;
-        settings.startChannelsCollapsed = startChannelsCollapsed;
-        settings.startMembersCollapsed = startMembersCollapsed;
-
-        function init(){
-          // Check settings for collapse
-          if (settings.startChannelsCollapsed)
-          {
-            $('#discordChannels').hide();
-          }
-          if (settings.startMembersCollapsed)
-          {
-            $('#discordMembers').hide();
-          }
-          
-          // Ready to fetch data
-          fetchData();    
-        }
-        
-        function fetchData(){
-          // Fetch data through AJAX
-          $.get('https://discordapp.com/api/servers/'+settings.serverIdentifier+'/embed.json', function(data){
-            var channels = "";
-            var members = "";
-            var notpresent = true;
-            // Channels
-            for (var i=0;i<data.channels.length;i++)
-            {
-              var elem = data.channels[i];
-              channels += "<div class='discord-channel'><span>"+elem.name+"</span></div>";
-            }
-            // Users
-            for (var i=0;i<data.members.length;i++)
-            {
-              var elem = data.members[i];
-              var name = elem.nick != null ? elem.nick : elem.username;
-              members += "<div class='discord-user'><img src="+elem.avatar_url+" /><span>"+name+"</span></div>";
-
-              if(name === username || name === discord_username){
-                notpresent = false;
+          function init(){
+            // Check settings for collapse
+            types.forEach(function(type) {
+              if (startCollapsed[type])
+              {
+                $('#discord' + type).hide();
               }
-            }
-            // Show join-text if user isn't present in Discord list
-            if(notpresent){
-              $('#discordinfo-linkbutton').show()
-            }
+            });
 
-            // Populate channels
-            if(data.channels.length === 0){
-              $('#discordChannels').html("<center>No data to show...</center>");   
-              $('#_count_discordChannels').text("-");
-            }else{
-              $('#discordChannels').html(channels);   
-              $('#_count_discordChannels').text(data.channels.length);
-            }
+            // Ready to fetch data
+            fetchData();    
+          }
 
-            // Populate channels
-            if(data.members.length === 0){
-              $('#discordMembers').html("<center>No data to show...</center>");   
-              $('#_count_discordMembers').text("-");
-            }else{
-              $('#discordMembers').html(members); 
-              $('#_count_discordMembers').text(data.members.length);
-            }
+          function fetchData(){
+            // Fetch data through AJAX
+            $.get('https://discordapp.com/api/servers/'+identifier+'/embed.json', function(data){
+              
+              var html = {
+                Members : '',
+                Channels : ''
+              }
+              
+              var notpresent = true;
+
+              types.forEach(function(type) {
+                var current = data[type.toLowerCase()]
+                var len = current.length;
+
+                if(len === 0){// If no data
+                  html[type] += '<div><b>' + type + '</b>: No data</div>';
+
+                }else if(len > 0){// Render HTML for type
+                  if(type === 'Members'){
+                    for (var i=0;i<len;i++)
+                    {
+                      var elem = current[i];
+                      var name = elem.nick != null ? elem.nick : elem.username;
+                      html[type] += "<div class='discord-user'><img src="+elem.avatar_url+" /><span>"+name+"</span></div>";
+        
+                      if(name === username || name === discord_username){
+                        notpresent = false;
+                      }
+                    }
+
+                    // Show join-text, if username not present
+                    if(notpresent){
+                      $('#discordinfo-linkbutton').show()
+                    }
+                  }else if(type === Channels){
+                    for (var i=0;i<len;i++){
+                      var elem = current[i];
+                      html[type] += "<div class='discord-channel'><span>"+elem.name+"</span></div>";
+                    }
+                  }
+                }else{// Else, i dont know what to do
+                  html[type] += '<div style="color:red;"><b>' + type + '</b>: Error</div>';
+                }
+
+                // Populate discord[type]
+                $('#discord' + type).html(html[type]);
+                if(len > 0){
+                  $('#' + counter + 'discord' + type).text(len);
+                  $('#' + icon + 'discord' + type).show();
+
+                  // Initiate toggle for type
+                  $('#' + icon + 'discord' + type).on('click', function(e){
+                    $('#discord' + type).slideToggle('fast');
+                  });
+                }
+              });
+            });
+          }
+
+          init();
 
           });
-
-          intToggle();
+          state.renderScheduled = true;
         }
-
-        function intToggle(){
-          $('#_show_discordChannels').on('click', function(e){
-            $('#discordChannels').slideToggle('fast');
-          });
-          $('#_show_discordMembers').on('click', function(e){
-            $('#discordMembers').slideToggle('fast');
-          });
-        }
-        init(); // FOLD IND UD VIRKER IKKKE...
-
-
-
-        });
-        state.renderScheduled = true;
-
-
       }
-   }
     }
-    //return iconHTML('comment-dots');
+
     return h('div.widget-inner', contents);
-    //return '';
   }
 
 });

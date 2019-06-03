@@ -19,7 +19,7 @@ plugins:
       default: "..join us today!"
   layouts_discordinfo_a_classes:
       client: true
-      default: icon btn btn default btn-icon-text ember-view"
+      default: icon btn btn default btn-icon-text ember-view
   layouts_discordinfo_a_customstyle:
       client: true
       default: ""
